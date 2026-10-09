@@ -1,0 +1,129 @@
+[
+  {
+    "id": "schedule-c",
+    "title": "Schedule C (Form 1040) — Profit or Loss from Business",
+    "url": "https://www.irs.gov/forms-pubs/about-schedule-c-form-1040",
+    "summary": "Reports income or loss from a business operated or a profession practiced as a sole proprietor. A business has an income or profit purpose and continuity and regularity.",
+    "search_terms": "freelance self employment gig contractor commissions art digital online tutoring delivery rideshare photography handmade selling jewelry client equipment business expenses",
+    "category": "Gig / self-employment",
+    "csv_goals": ["Schedule C (Form 1040)"]
+  },
+  {
+    "id": "w2",
+    "title": "Form W-2 — Wage and Tax Statement",
+    "url": "https://www.irs.gov/forms-pubs/about-form-w-2",
+    "summary": "Employers report employee compensation and withheld income, Social Security, and Medicare taxes. This is an employer-issued wage statement, not a return prepared by the employee.",
+    "search_terms": "employment wages salary paid internship summer job campus work study teaching assistant TA barista coffee shop part time full time annual earnings paycheck",
+    "category": "W-2 employment",
+    "csv_goals": ["Form W-2"]
+  },
+  {
+    "id": "1098-t",
+    "title": "Form 1098-T — Tuition Statement",
+    "url": "https://www.irs.gov/forms-pubs/about-form-1098-t",
+    "summary": "Eligible educational institutions file this statement for enrolled students with reportable transactions. Insurers also report reimbursements or refunds of qualified tuition and related expenses.",
+    "search_terms": "university college tuition financial aid scholarship fellowship education school annual statement",
+    "category": "Tuition / education",
+    "csv_goals": ["Form 1098-T"]
+  },
+  {
+    "id": "1099-int",
+    "title": "Form 1099-INT — Interest Income",
+    "url": "https://www.irs.gov/forms-pubs/about-form-1099-int",
+    "summary": "Payers report interest income and certain withholding information. The statement helps recipients identify interest paid to them.",
+    "search_terms": "bank savings account high yield interest deposit checking bonus",
+    "category": "Bank interest",
+    "csv_goals": ["Form 1099-INT"]
+  },
+  {
+    "id": "8949",
+    "title": "Form 8949 — Sales and Other Dispositions of Capital Assets",
+    "url": "https://www.irs.gov/forms-pubs/about-form-8949",
+    "summary": "Reconciles amounts reported on Form 1099-B or 1099-S with amounts reported on the return. Subtotals carry to Schedule D for aggregate gain or loss calculations.",
+    "search_terms": "sold selling investments stocks shares broker capital gains losses personal property sale proceeds cost",
+    "category": "Investment income / asset sales",
+    "csv_goals": ["Form 8949 and Schedule D (Form 1040)"]
+  },
+  {
+    "id": "schedule-d",
+    "title": "Schedule D (Form 1040) — Capital Gains and Losses",
+    "url": "https://www.irs.gov/forms-pubs/about-schedule-d-form-1040",
+    "summary": "Reports sales or exchanges of capital assets not reported on another form, certain involuntary conversions, capital gain distributions, and nonbusiness bad debts.",
+    "search_terms": "sold selling investments stocks shares gains losses capital assets personal property sale",
+    "category": "Investment income / asset sales",
+    "csv_goals": ["Form 8949 and Schedule D (Form 1040)"]
+  },
+  {
+    "id": "8863",
+    "title": "Form 8863 — Education Credits",
+    "url": "https://www.irs.gov/forms-pubs/about-form-8863",
+    "summary": "Figures and claims the American Opportunity and Lifetime Learning education credits based on qualified education expenses paid to an eligible postsecondary educational institution. Retrieval does not establish eligibility.",
+    "search_terms": "paid university college classes tuition textbooks required books course materials education credit school",
+    "category": "Tuition / education",
+    "csv_goals": ["Form 8863"]
+  },
+  {
+    "id": "schedule-1",
+    "title": "Schedule 1 (Form 1040) — Additional Income and Adjustments to Income",
+    "url": "https://www.irs.gov/pub/irs-pdf/f1040s1.pdf",
+    "source_url": "https://www.irs.gov/forms-pubs/about-form-1040",
+    "summary": "The Form 1040 overview directs taxpayers with additional income such as unemployment compensation, prize or award money, or gambling winnings, and adjustments such as student loan interest deductions, to Schedule 1. Deduction eligibility requires the instructions.",
+    "search_terms": "student loans borrowed school repayment payments interest raffle prize award research study participant compensation other income",
+    "category": "Other income / adjustments",
+    "csv_goals": ["Schedule 1 (Form 1040)"]
+  },
+  {
+    "id": "1040",
+    "title": "Form 1040 — U.S. Individual Income Tax Return",
+    "url": "https://www.irs.gov/forms-pubs/about-form-1040",
+    "summary": "U.S. taxpayers use Form 1040 to file an annual income tax return. Its instructions explain reporting income and using associated schedules; taxpayer status and the tax year matter.",
+    "search_terms": "annual return taxable scholarship fellowship room board housing meals dorm",
+    "category": "Scholarships / fellowships",
+    "csv_goals": ["Form 1040"]
+  },
+  {
+    "id": "8233",
+    "title": "Form 8233 — Treaty Exemption From Withholding on Personal Services",
+    "url": "https://www.irs.gov/forms-pubs/about-form-8233",
+    "summary": "Nonresident alien individuals use this form to claim exemption from withholding on compensation for personal services because of an income tax treaty or the personal exemption amount. Treaty eligibility is not established by retrieval.",
+    "search_terms": "international nonresident student tax treaty withholding exemption wages compensation",
+    "category": "International / treaty",
+    "csv_goals": ["Form 8233"]
+  },
+  {
+    "id": "schedule-a",
+    "title": "Schedule A (Form 1040) — Itemized Deductions",
+    "url": "https://www.irs.gov/forms-pubs/about-schedule-a-form-1040",
+    "summary": "Figures itemized deductions. The IRS overview explains that in most cases taxpayers compare itemized deductions with the standard deduction. Individual expense eligibility requires the instructions.",
+    "search_terms": "itemized medical health insurance premium expenses charitable deductions",
+    "category": "Itemized deductions",
+    "csv_goals": ["Schedule A (Form 1040)"]
+  },
+  {
+    "id": "schedule-se",
+    "title": "Schedule SE (Form 1040) — Self-Employment Tax",
+    "url": "https://www.irs.gov/forms-pubs/about-schedule-se-form-1040",
+    "summary": "Figures tax due on net earnings from self-employment. The Social Security Administration uses the information to figure benefits.",
+    "search_terms": "self employment business net earnings social security medicare",
+    "category": "Gig / self-employment",
+    "csv_goals": []
+  },
+  {
+    "id": "1098-e",
+    "title": "Form 1098-E — Student Loan Interest Statement",
+    "url": "https://www.irs.gov/forms-pubs/about-form-1098-e",
+    "summary": "Recipients of student loan interest in the course of their trade or business file this form and provide a statement to the borrower when the applicable reporting requirements are met. It reports interest, not principal repayment.",
+    "search_terms": "student loan borrowed school lender interest repayment payments statement",
+    "category": "Student loans",
+    "csv_goals": []
+  },
+  {
+    "id": "1099-b",
+    "title": "Form 1099-B — Proceeds From Broker and Barter Exchange Transactions",
+    "url": "https://www.irs.gov/forms-pubs/about-form-1099-b",
+    "summary": "Brokers and barter exchanges report specified transactions, including sales of stocks and other securities for cash. This is a payer-issued transaction statement.",
+    "search_terms": "broker sold stocks investments shares proceeds transactions account statement",
+    "category": "Investment income / asset sales",
+    "csv_goals": []
+  }
+]
