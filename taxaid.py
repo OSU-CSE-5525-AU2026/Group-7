@@ -1,5 +1,7 @@
 """Text-only TaxAid prototype: BM25 search and evaluation. Python 3.10+."""
 
+# Author: Group 7 NLP CSE 5525
+
 import argparse
 import csv
 import json
