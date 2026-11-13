@@ -1,4 +1,4 @@
-# TaxAid prototype guide
+# TaxAid-baseline guide
 
 **This is just a prototype.** It takes a student's description, searches a small
 catalog of IRS resources, and returns the **top three matches** to show a simple
@@ -168,15 +168,39 @@ output.
 
 ## What's still missing?
 
-- Reviewed labels, complete resource coverage, and clear tax-year assumptions.
-- A final test set that wasn't used to choose keywords.
-- Semantic model that handles more than literal words.
-- Actual multimodal image processing
-- A user study to see whether the explanations actually help people.
+[✅] Reviewed labels, complete resource coverage, and clear tax-year assumptions.
+[❌] A final test set that wasn't used to choose keywords.
+[🚧] Semantic model that handles more than literal words.
+[🚧] Actual multimodal image processing
+[❌] A user study to see whether the explanations actually help people.
 
-The next useful step is to have two teammates independently review each case
-using official IRS materials, record all relevant resources and assumptions, and
-have a third teammate settle disagreements. Then freeze the data and catalog
-before comparing more advanced approaches.
+### Latest Update:
 
-For now, this is just a small, text-only search prototype.
+test_cases.csv is now officially cleaned and updated with expert feedback!
+
+## Jev experiment
+
+The `jev/` directory contains a separate semantic-classification experiment
+using TypeSafe's Jev model. Its vetted question definitions are kept unchanged
+in `jev/jev_questions.json`; the integration validates their structure and
+passes them to the SDK as typed `Choice` and `Noul` questions.
+
+The initial Jev request uses the full set of question criteria rather than
+replacing or pre-filtering the BM25 catalog. Its output is normalized into the
+selected tax-form label, the complete probability map and confidence, the
+taxability probability, and an exact catalog resource ID when one exists.
+Conditional or non-resource labels remain visible as `unmapped_choice` rather
+than being silently treated as IRS resources. Jev output is not tax advice or
+an eligibility determination, and the existing BM25 path remains the
+deterministic baseline for comparison.
+
+To try it, install `requirements.txt`, set `TYPESAFE_API_KEY`, and run:
+
+```bash
+python -m jev query "I earned some interest from my bank account."
+```
+
+`python -m jev evaluate` runs the same CSV scenarios through Jev and BM25 and
+reports their hit rates side by side; it requires a live `TYPESAFE_API_KEY`.
+The current integration is text-only. The CSV and test-image fields can support
+a later multimodal experiment, but images should not be enabled by default.

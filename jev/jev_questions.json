@@ -1,0 +1,33 @@
+{
+  "TaxAid": {
+    "type": "choice",
+    "instructions": "Which tax form should the user fill out?",
+    "criteria": {
+      "Schedule C (Form 1040)": "Reports income or loss from a business operated as a sole proprietor, including freelance, gig, or independent contractor work.",
+      "Form W-2": "Employer-issued statement reporting employee wages, compensation, and withheld taxes. The employee does not prepare this form.",
+      "Form 1098-T": "Issued by eligible educational institutions to report qualified tuition and related educational transactions.",
+      "Form 1099-INT": "Reports interest income earned from bank accounts, savings accounts, and other interest-paying sources.",
+      "Form 8949 and Schedule D (Form 1040)": "Reports sales and other dispositions of capital assets, including investments, and calculates capital gains or losses.",
+      "Form 8863": "Calculates and claims the American Opportunity Tax Credit or Lifetime Learning Credit for eligible education expenses.",
+      "Schedule 1 (Form 1040)": "Reports additional income, such as prizes, awards, or unemployment compensation, and adjustments such as eligible student loan interest deductions.",
+      "No form required if sold at a loss": "Generally applies when personal-use property is sold for less than its original cost. Personal-use losses are generally not deductible.",
+      "Form 8233": "Allows eligible nonresident alien individuals to claim exemption from withholding on compensation for personal services under an applicable income tax treaty.",
+      "Schedule A (Form 1040)": "Calculates itemized deductions, including eligible medical expenses and charitable contributions, as an alternative to the standard deduction.",
+      "No federal employee expense deduction generally": "Most employees cannot deduct unreimbursed work-related expenses on their federal income tax returns, although certain exceptions apply.",
+      "No form required for loan proceeds": "Borrowed money generally is not taxable income because it must be repaid. Interest deductions and canceled debt may have separate reporting requirements.",
+      "No form required solely for purchase": "Purchasing stocks, investments, or personal property generally does not itself require federal income tax reporting.",
+      "Schedule C (Form 1040) if sole proprietor": "Applies when an individual operates a business as a sole proprietor and must report business income and deductible expenses.",
+      "Form 4562 and Schedule C (Form 1040) if self-employed": "Applies when a self-employed individual reports qualifying depreciation or amortization of business assets alongside business income and expenses.",
+      "Form 8949 and Schedule D (Form 1040) if sold at a gain": "Applies when capital assets, including investments or personal-use property, are sold for a taxable gain.",
+      "Form 8863 if eligible": "Applies when a taxpayer meets the eligibility requirements for claiming education credits based on qualified postsecondary education expenses."
+    }
+  },
+  "Taxability": {
+    "type": "noul",
+    "instructions": "Does the college student's prompt describe income, an expense, or a financial activity that may need to be reported on a federal income tax return or may qualify for a tax deduction or credit?",
+    "criteria": {
+      "true": "The activity may involve taxable income, a reporting requirement, a deduction, or a tax credit.",
+      "false": "The activity has no apparent federal income tax implications."
+    }
+  }
+}
