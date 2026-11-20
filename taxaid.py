@@ -1,4 +1,4 @@
-"""Text-only TaxAid prototype: BM25 search and evaluation. Python 3.10+."""
+"""Text-only TaxAid prototype: BM25 or MiniLM search and evaluation. Python 3.10+."""
 
 # Author: Group 7 NLP CSE 5525
 
@@ -135,16 +135,26 @@ def main(argv=None):
     commands = parser.add_subparsers(dest="command", required=True)
     query = commands.add_parser("query", help="Search a custom student description")
     query.add_argument("text")
-    commands.add_parser("evaluate", help="Search the CSV scenarios and check draft goals")
+    evaluation = commands.add_parser("evaluate", help="Search the CSV scenarios and check draft goals")
+    for command in (query, evaluation):
+        command.add_argument("--method", choices=("bm25", "minilm"), default="bm25", help="Retrieval method (default: bm25)")
     args = parser.parse_args(argv)
     try:
-        index = BM25(load_resources(ROOT / "data/irs_resources.json"))
+        resources = load_resources(ROOT / "data/irs_resources.json")
+        if args.method == "minilm":
+            from minilm import MiniLM
+
+            index = MiniLM(resources)
+        else:
+            index = BM25(resources)
         if args.command == "query":
             report = {"query": args.text, "top_k": TOP_K, "ranking": index.rank(args.text)}
         else:
             report = evaluate(load_cases(ROOT / "test_cases.csv"), index)
+        if args.method == "minilm":
+            report.update(index.metadata)
         print(json.dumps({"disclaimer": DISCLAIMER, **report}, indent=2))
-    except (OSError, ValueError, csv.Error) as error:
+    except (OSError, ValueError, RuntimeError, csv.Error) as error:
         parser.exit(2, f"taxaid: {error}\n")
     return 0
 

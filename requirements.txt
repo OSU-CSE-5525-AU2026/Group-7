@@ -1,1 +1,2 @@
 typesafe-sdk
+sentence-transformers==5.1.2
