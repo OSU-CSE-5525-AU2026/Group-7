@@ -1,7 +1,7 @@
 # TaxAid prototype
 
-This project contains two small retrieval experiments for matching student
-descriptions with IRS resources. Both are prototypes, not tax advice or
+This project contains three small retrieval experiments for matching student
+descriptions with IRS resources. All are prototypes, not tax advice or
 eligibility determinations.
 
 Run these commands from the `Group-7` directory.
@@ -17,6 +17,34 @@ BM25.
 python taxaid.py query "I make money creating digital art online."
 python taxaid.py evaluate
 ```
+
+## MiniLM Semantic Baseline
+
+MiniLM ranks the same resource titles, summaries, and search terms by meaning
+rather than exact word overlap. It uses `sentence-transformers/all-MiniLM-L6-v2`
+on CPU, with a pinned model revision and normalized embeddings. Resource
+embeddings are computed once per process; cosine similarity determines the top
+three resources, with ties sorted by resource ID. Scores are not probabilities
+or proof of tax applicability. Unlike BM25, MiniLM returns three results even
+when their similarities are low or negative.
+
+Install dependencies in a virtual environment, then select MiniLM explicitly:
+
+```bash
+python -m pip install -r requirements.txt
+python taxaid.py query "I make money creating digital art online." --method minilm
+python taxaid.py evaluate --method minilm
+python taxaid.py evaluate --method bm25
+```
+
+BM25 remains the default and needs no MiniLM dependencies. The first MiniLM run
+downloads model files from Hugging Face; subsequent runs reuse the local cache.
+Inference is local: no Jev key or hosted inference requests are needed. To force
+offline loading after the download, set `HF_HUB_OFFLINE=1`. MiniLM embeds only
+the scenario text, never its goal, image filename, or justification. Inputs
+longer than the model's 256-token limit are truncated; the current resource
+texts fit within that limit. JSON reports include the model ID/revision,
+Sentence Transformers version, and maximum sequence length.
 
 ## Jev Experiment
 
@@ -49,18 +77,19 @@ separately in `jev/jev_questions.json`.
 
 ## Latest Results
 
-The latest terminal run was:
-
-**Cases:** 52/60 scored; 8 unscored.
+The local BM25/MiniLM comparison scored **52/60 cases; 8 remain unscored**.
+Jev's row is retained from the earlier live run; Jev was not called again.
 
 | Pipeline | Hit rate | Precision | Recall | F1 |
 | --- | ---: | ---: | ---: | ---: |
-| BM25 | 0.8077 | 0.4006 | **0.7981** | 0.5115 |
-| Jev | 0.8077 | **0.8077** | 0.7692 | **0.7821** |
+| BM25 | 0.8077 | 0.4006 | 0.7981 | 0.5115 |
+| MiniLM | 0.9808 | 0.3526 | 0.9712 | 0.5115 |
+| Jev (previous run) | 0.8077 | 0.8077 | 0.7692 | 0.7821 |
 
 These metrics measure agreement with provisional CSV goals, not tax
-correctness. Jev's current run matches BM25 on hit rate while producing higher
-precision and F1.
+correctness or performance on a fresh held-out test. MiniLM improves top-three
+hit rate, but precision decreases and F1 is unchanged. Jev returns at most one
+mapped resource, so its precision/F1 are not an equal-depth ranking comparison.
 
 ## More information
 
